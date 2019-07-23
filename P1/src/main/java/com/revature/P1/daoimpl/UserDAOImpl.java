@@ -1,6 +1,6 @@
 package com.revature.P1.daoimpl;
 
-import java.sql.Connection; 
+import java.sql.Connection;  
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +31,7 @@ public class UserDAOImpl implements UserDAO{
 	}
 
 	@Override
-	public List<User> getUserList() throws SQLException {
+	public List<User> getUserList() throws SQLException {  //won't need this method. Just testing it
 		
 		List<User> userList = new ArrayList<User>();
 		Connection conn = cf.getConnection();
@@ -44,6 +44,19 @@ public class UserDAOImpl implements UserDAO{
 		}
 		
 		return userList;
+	}
+	
+	public User getThisUser(String username, String password) throws SQLException{
+	//List<User> userList = new ArrayList<User>();
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE USERNAME = '"+username+"' AND PASSWORD = '"+password+"'" );
+		User u = null;
+		while(rs.next()) {
+			u = new User(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+			
+		}
+		return u;
 	}
 	
 	

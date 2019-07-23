@@ -3,6 +3,7 @@ package com.revature.P1.utilities;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -27,23 +28,22 @@ public class ConnFactory {
 			Properties prop = new Properties();
 			
 			try {
-				prop.load(new FileReader("database.properties"));
+				InputStream stream = this.getClass().getResourceAsStream("/database.properties");
+				prop.load(stream);
+	
+				//prop.load(new FileReader("database.properties"));
 				Class.forName(prop.getProperty("driver"));
 				conn= DriverManager.getConnection(
 						prop.getProperty("url"), 
 						prop.getProperty("usr"),
 						prop.getProperty("password"));
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
+			} catch (FileNotFoundException e) {			
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			return conn;

@@ -18,10 +18,10 @@ public class Main {
 			usd.createUser(100, "secretly", "spiderman", "Peter", "Parker", "Pete@dailyBugle.com");
 		} catch (SQLException e) {
 			e.printStackTrace();
-		};*/
+		};
 		
 		System.out.println("Congratulations, an employee has been created!");
-	//	log.info("Employee creation successful");
+		log.info("Employee creation successful");
 		System.out.println("finishing with program");
 		
 		try {
@@ -30,6 +30,14 @@ public class Main {
 			e.printStackTrace();
 		}
 
+	
+	
+		try {
+			System.out.println(usd.getThisUser("secretly", "spiderman"));
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+*/				
 	}
 
 }
