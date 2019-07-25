@@ -3,15 +3,18 @@ package com.revature.P1.utilities;
 import java.sql.SQLException;
 import org.apache.log4j.Logger;
 
+import com.revature.P1.daoimpl.ReimbursementDAOImpl;
 import com.revature.P1.daoimpl.UserDAOImpl;
 
 import org.apache.log4j.Logger;
 
 public class Main {
 	private static Logger log = Logger.getRootLogger();
+	
 	public static void main(String[] args) {
 		
 		UserDAOImpl usd = new UserDAOImpl();
+		ReimbursementDAOImpl rdi = new ReimbursementDAOImpl();
 		
 	/*	try {
 			log.info("Adding employee to the log");
@@ -37,7 +40,36 @@ public class Main {
 		}catch (SQLException e) {
 			e.printStackTrace();
 		}
-*/				
+	
+		
+		try {
+			System.out.println(rdi.getReimbursementByMgr(1));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	
+		try { // this method is not working as yet!
+			rdi.createRequest(300, "Poison", "Pending", 112, 1);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		try { // METHOD WORKS !!
+			System.out.println(rdi.getReimbursementAll());
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		*/
+		
+		try { //method works!!
+			System.out.println(usd.getEmployeeList());
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

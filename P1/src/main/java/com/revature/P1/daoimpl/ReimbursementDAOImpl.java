@@ -18,8 +18,9 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 
 	@Override
 	public void createRequest(double amount, String description, String status, int empID, int reviewingMgrID) throws SQLException {
+		
 		Connection conn = cf.getConnection();
-		String sql = "INSERT INTO REIMBURSEMENT VALUES(REIMBURSEMENTSEQ.NEXTVALUE,?,?,?,?,?)";
+		String sql = "INSERT INTO REIMBURSEMENT VALUES(REISEQ.NEXTVALUE,?,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setDouble(1, amount);
 		ps.setString(2, description);
@@ -31,11 +32,11 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	}
 
 	@Override
-	public List<Reimbursement> getReimbursementByEmp(int empID) throws SQLException {
+	public List<Reimbursement> getReimbursementByUserID(int userID) throws SQLException {
 		List<Reimbursement> reimbursementList = new ArrayList<Reimbursement>();
 		Connection conn = cf.getConnection();
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE EMPID = '"+empID+"'");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE USERID = '"+userID+"'");
 		Reimbursement r = null;
 		while(rs.next()) {
 			r = new Reimbursement(rs.getInt(1), rs.getDouble(2),rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6));
@@ -44,12 +45,12 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 		return reimbursementList;
 	}
 
-	@Override
+	//@Override
 	public List<Reimbursement> getReimbursementByMgr(int mgrID) throws SQLException {
 		List<Reimbursement> reimbursementList = new ArrayList<Reimbursement>();
 		Connection conn = cf.getConnection();
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE MGRID = '"+mgrID+"'");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE MGRID = "+mgrID);
 		Reimbursement r = null;
 		while(rs.next()) {
 			r = new Reimbursement(rs.getInt(1), rs.getDouble(2),rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6));
@@ -62,10 +63,19 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	 public void rejectSingleRequest(int userID, int reimbursementID) throws SQLException{
 	
 }
-	
-	
-	
-	
-
-}
+	 
+	 public List<Reimbursement> getReimbursementAll() throws SQLException {
+			List<Reimbursement> reimbursementList = new ArrayList<Reimbursement>();
+			Connection conn = cf.getConnection();
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT");
+			Reimbursement r = null;
+			while(rs.next()) {
+				r = new Reimbursement(rs.getInt(1), rs.getDouble(2),rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6));
+				reimbursementList.add(r);
+			}
+			return reimbursementList;
+	 }
+	 
+} 
   

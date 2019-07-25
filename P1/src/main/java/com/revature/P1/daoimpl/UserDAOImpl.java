@@ -76,6 +76,26 @@ public class UserDAOImpl implements UserDAO{
 		return result;
 	}
 	
+	// Use this method to get all employees!!!!
+	
+	public List<User> getEmployeeList() throws SQLException {  //won't need this method. Just testing it
+		
+		List<User> userList = new ArrayList<User>();
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM USERS WHERE MGRID != 1");
+		User u = null;
+		while(rs.next()) {
+			u = new User(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+			userList.add(u);
+		}
+		
+		return userList;
+	}
+
+	
+
+	
 	
 	
 

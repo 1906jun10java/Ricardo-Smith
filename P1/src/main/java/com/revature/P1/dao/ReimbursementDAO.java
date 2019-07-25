@@ -11,7 +11,7 @@ public interface ReimbursementDAO {
 	public abstract void createRequest(double amount, String description, String status, int empID, int reviewingMgrID) 
 			throws SQLException;
 	
-	public abstract List<Reimbursement> getReimbursementByEmp(int empID)
+	public abstract List<Reimbursement> getReimbursementByUserID(int userID)
 			throws SQLException;
 	
 	public abstract List<Reimbursement> getReimbursementByMgr(int mgrID)

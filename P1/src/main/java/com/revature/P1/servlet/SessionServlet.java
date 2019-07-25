@@ -27,7 +27,7 @@ public class SessionServlet extends HttpServlet {
 		// grabbing the current session, otherwise getting a null value
 		HttpSession session = request.getSession(false);
 		
-		if(session != null /*&& session.getAttribute("userID") != null*/) {
+		if(session != null ) {
 				int userID = Integer.parseInt(session.getAttribute("userID").toString());
 				int mgrID = Integer.parseInt(session.getAttribute("mgrID").toString());
 				String firstname = session.getAttribute("firstName").toString();

@@ -7,11 +7,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ProfileServlet extends HttpServlet{
+public class EmployeeProfileServlet extends HttpServlet{
 	
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		
-		req.getRequestDispatcher("Profile.html").forward(req, resp);
+		req.getRequestDispatcher("employeeProfile.html").forward(req, resp);
 	}
 	
 	

@@ -4,6 +4,10 @@ window.onload = function() {
 	populateUser();
 }
 
+/*document.getElementById('new').addEventListener('click', e =>{ ==what jake helped me with.==
+	window.location = "http://localhost:8082/P1/login"
+})*/
+
 function populateUser() {
 	// send a GET request to SessionServlet to obtain session information
 	fetch("http://localhost:8082/P1/session")

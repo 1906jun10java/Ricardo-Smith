@@ -17,37 +17,33 @@ import com.revature.P1.service.AuthenticationService;
 
 public class LoginServlet extends HttpServlet {
 	private static Logger log = Logger.getRootLogger();
-	
-	
+
 	private AuthenticationService authenticationService = new AuthenticationService();
-	
-	
-	//doGet method will handle all Get requests made to this servlet
-	
+
+	// doGet method will handle all Get requests made to this servlet
+
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
-		log.info("LS. Inside of LonginServlet doGet method.");
-		System.out.println("inside of loginservlet");
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		req.getRequestDispatcher("Login.html").forward(req, resp);
 	}
-	
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{
 		
 		HttpSession session = req.getSession();
-		System.out.println("attempting to populate creds");
+		
 		
 		Credentials creds = new Credentials(req.getParameter("username"), req.getParameter("password"));
-		System.out.println("LS. going to check if credentials are good");
 		
-		log.info("inside the LoginServlet doPost method");
-		System.out.println("these are the creds: " +creds);
+	
+		
 		
 		User user = authenticationService.authentication(creds);
 		
+		
 		if(user != null) {
-			System.out.println("LS. user not null");
-			log.info("the user input is valid and we have retrieved  their info");
+			
 			session.setAttribute("userID", user.getUserID());
 			session.setAttribute("mgrID", user.getMgrID());
 			session.setAttribute("username", user.getUsername());
@@ -56,12 +52,17 @@ public class LoginServlet extends HttpServlet {
 			session.setAttribute("email", user.getEmail());
 			session.setAttribute("problem", null);
 			
-			resp.sendRedirect("profile");
-		}else {
-			System.out.println("user is null");
-			session.setAttribute("problem", "you are no assassin");
-			resp.sendRedirect("login");
-		}
+			if(user.getUserID()==100) {
+				resp.sendRedirect("managerProfile");
+			}else {
+				resp.sendRedirect("employeeProfile");
+			}			
+			
+		}else{
+		System.out.println("user is null");
+		session.setAttribute("problem", "you are no assassin");
+		resp.sendRedirect("login");
 	}
+}
 
 }

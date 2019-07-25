@@ -10,17 +10,25 @@
 </head>
 <body>
 	<div class="display">
-		<h1>WELCOME TO YOUR HOME PAGE!</h1>
+		<h1>WELCOME TO THE EMPLOYEE HOME PAGE!</h1>
 	</div>
 	<div class="display">
 		<br>
 		<p id="firstP">Thanks for logging into your Assassin's Account.</p>
 	</div>
+	
+	<form action="addReimbursement">
+	Enter the Reimbursement Amount: <input type="text" name="amount"><br>
+	Enter the Reimbursement Reason: <input type="text" name="reason"><br>
+	<input type="submit">
+	</form>
+
 	<div>
 		<ul id="info" class="display">
 			<li>Your Information:</li>
 			<li id ="userID"></li>
 			<li id="mgrID"></li>
+			<li>Your Manager: Ricardo Smith</li>
 			<li id="username"></li>
 			<li id="firstname"></li>
 			<li id="lastname"></li>

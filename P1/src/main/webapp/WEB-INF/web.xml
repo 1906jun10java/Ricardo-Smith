@@ -18,19 +18,35 @@
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
   <servlet>
-    <servlet-name>Profile</servlet-name>
-    <servlet-class>com.revature.P1.servlet.ProfileServlet</servlet-class>
+    <servlet-name>EmployeeProfile</servlet-name>
+    <servlet-class>com.revature.P1.servlet.EmployeeProfileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>Profile</servlet-name>
-    <url-pattern>/profile</url-pattern>
+    <servlet-name>EmployeeProfile</servlet-name>
+    <url-pattern>/employeeProfile</url-pattern>
   </servlet-mapping>
   <servlet>
-  	<servlet-name>Session</servlet-name>
-  	<servlet-class>com.revature.P1.servlet.SessionServlet</servlet-class>
+    <servlet-name>x</servlet-name>
+    <servlet-class>com.revature.P1.servlet.ManagerProfileServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>Session</servlet-name>
-  	<url-pattern>/session</url-pattern>
+    <servlet-name>x</servlet-name>
+    <url-pattern>/managerProfile</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Reimbursement</servlet-name>
+    <servlet-class>com.revature.P1.servlet.ReimbursementServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Reimbursement</servlet-name>
+    <url-pattern>/addReimbursement</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>Session</servlet-name>
+    <servlet-class>com.revature.P1.servlet.SessionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Session</servlet-name>
+    <url-pattern>/session</url-pattern>
   </servlet-mapping>
 </web-app>
