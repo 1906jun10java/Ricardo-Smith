@@ -8,7 +8,7 @@ import com.revature.P1.beans.User;
 
 public interface ReimbursementDAO {
 	
-	public abstract void createRequest(double amount, String description, String status, int empID, int reviewingMgrID) 
+	public abstract void createRequest(int reimbursementID, double amount, String description, String status, int empID, int reviewingMgrID) 
 			throws SQLException;
 	
 	public abstract List<Reimbursement> getReimbursementByUserID(int userID)

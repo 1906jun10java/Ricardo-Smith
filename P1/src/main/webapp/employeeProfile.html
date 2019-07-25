@@ -17,11 +17,23 @@
 		<p id="firstP">Thanks for logging into your Assassin's Account.</p>
 	</div>
 	
-	<form action="addReimbursement">
+	<form action="addReimbursement" method="POST">
 	Enter the Reimbursement Amount: <input type="text" name="amount"><br>
 	Enter the Reimbursement Reason: <input type="text" name="reason"><br>
 	<input type="submit">
 	</form>
+	
+	<form action="changeUsername" method="POST">
+	Enter New Username: <input type="text" name="username"><br>	
+	<input type="submit">
+	</form>
+
+	<form action="changePassowrd" method="POST">
+	Enter New Password: <input type="text" name="password"><br>
+	<input type="submit">
+	</form>
+	
+	
 
 	<div>
 		<ul id="info" class="display">

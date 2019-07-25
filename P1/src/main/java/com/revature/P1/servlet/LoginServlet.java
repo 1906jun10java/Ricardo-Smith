@@ -36,7 +36,6 @@ public class LoginServlet extends HttpServlet {
 		
 		Credentials creds = new Credentials(req.getParameter("username"), req.getParameter("password"));
 		
-	
 		
 		
 		User user = authenticationService.authentication(creds);

@@ -49,4 +49,13 @@
     <servlet-name>Session</servlet-name>
     <url-pattern>/session</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>ChangeUsername</servlet-name>
+    <servlet-class>com.revature.P1.servlet.ChangeUsernameServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ChangeUsername</servlet-name>
+    <url-pattern>/changeUsername</url-pattern>
+  </servlet-mapping>
 </web-app>

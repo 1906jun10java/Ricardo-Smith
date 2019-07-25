@@ -92,6 +92,15 @@ public class UserDAOImpl implements UserDAO{
 		
 		return userList;
 	}
+	
+	public void updateUsername (String username, int userID) throws SQLException{
+		Connection conn = cf.getConnection();
+		String sql = "UPDATE USERS SET USERNAME = ? WHERE USERID = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, username);
+		ps.setInt(2, userID);
+		ps.executeUpdate();
+	}
 
 	
 

@@ -8,11 +8,16 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import com.revature.P1.service.EmployeeService;
 
 
 //@WebServlet("/Reimbursement")
 public class ReimbursementServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private EmployeeService es = new EmployeeService();
        
     
     public ReimbursementServlet() {
@@ -34,7 +39,18 @@ public class ReimbursementServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-				doGet(request, response);
+				HttpSession session = request.getSession();
+				
+				double amount = Double.parseDouble(request.getParameter("amount"));
+				String reason = request.getParameter("reason");
+				
+				int empID = Integer.parseInt(session.getAttribute("userID").toString());
+				int mgrID = Integer.parseInt(session.getAttribute("mgrID").toString());
+				
+				es.createReimbursement(8, amount, reason, "Pending", empID, mgrID);
+				
+				request.getRequestDispatcher("employeeProfile.html").forward(request, response);
+				
 	}
 
 }

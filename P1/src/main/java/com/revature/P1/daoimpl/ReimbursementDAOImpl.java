@@ -17,16 +17,18 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	public static ConnFactory cf = ConnFactory.getInstance();
 
 	@Override
-	public void createRequest(double amount, String description, String status, int empID, int reviewingMgrID) throws SQLException {
+	public void createRequest(int reimbursementID, double amount, String description, String status, int empID, int reviewingMgrID) throws SQLException {
 		
 		Connection conn = cf.getConnection();
-		String sql = "INSERT INTO REIMBURSEMENT VALUES(REISEQ.NEXTVALUE,?,?,?,?,?)";
+		//String sql = "INSERT INTO REIMBURSEMENT VALUES(REISEQ.NEXTVALUE,?,?,?,?,?)";
+		String sql = "INSERT INTO REIMBURSEMENT VALUES(?,?,?,?,?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
-		ps.setDouble(1, amount);
-		ps.setString(2, description);
-		ps.setString(3, status);
-		ps.setInt(4, empID);
-		ps.setInt(5, reviewingMgrID);
+		ps.setInt(1, reimbursementID);
+		ps.setDouble(2, amount);
+		ps.setString(3, description);
+		ps.setString(4, status);
+		ps.setInt(5, empID);
+		ps.setInt(6, reviewingMgrID);
 		ps.executeUpdate();
 		
 	}

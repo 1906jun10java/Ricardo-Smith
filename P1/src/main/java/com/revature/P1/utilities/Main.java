@@ -47,10 +47,10 @@ public class Main {
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
-		
+	
 	
 		try { // this method is not working as yet!
-			rdi.createRequest(300, "Poison", "Pending", 112, 1);
+			rdi.createRequest(5, 300, "Poison", "Pending", 112, 1);
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
@@ -63,13 +63,15 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		*/
+		
 		
 		try { //method works!!
 			System.out.println(usd.getEmployeeList());
 		}catch(SQLException e) {
 			e.printStackTrace();
 		}
+		
+		*/
 	}
 
 }
