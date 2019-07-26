@@ -40,5 +40,22 @@ function populateUser() {
 
 						}
 					})
-
+					
+					
 }
+
+
+
+// Below I tried to add an event listener but I think it would be better to implement it
+// when i have AJAX XHR instead!
+
+/*document.getElementById('add').addEventListener('click', function(e){
+	
+	let eventTarget = e.target;
+	if(eventTarget.tagName === 'input'){
+		window.alert('your request has been submitted!')
+		document.getElementById('dollars').value = ' ';
+	}
+	
+});
+*/

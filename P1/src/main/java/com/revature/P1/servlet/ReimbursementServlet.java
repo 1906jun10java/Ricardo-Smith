@@ -39,6 +39,7 @@ public class ReimbursementServlet extends HttpServlet {
 
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+				
 				HttpSession session = request.getSession();
 				
 				double amount = Double.parseDouble(request.getParameter("amount"));
@@ -47,7 +48,7 @@ public class ReimbursementServlet extends HttpServlet {
 				int empID = Integer.parseInt(session.getAttribute("userID").toString());
 				int mgrID = Integer.parseInt(session.getAttribute("mgrID").toString());
 				
-				es.createReimbursement(8, amount, reason, "Pending", empID, mgrID);
+				es.createReimbursement(13, amount, reason, "Pending", empID, mgrID);
 				
 				request.getRequestDispatcher("employeeProfile.html").forward(request, response);
 				

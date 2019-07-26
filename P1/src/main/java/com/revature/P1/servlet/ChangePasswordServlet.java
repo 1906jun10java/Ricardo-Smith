@@ -11,14 +11,14 @@ import javax.servlet.http.HttpSession;
 import com.revature.P1.service.EmployeeService;
 
 
-//@WebServlet("/ChangeUsernameServlet")
-public class ChangeUsernameServlet extends HttpServlet {
+//@WebServlet("/ChangePasswordServlet")
+public class ChangePasswordServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private EmployeeService es = new EmployeeService();
        
-   
-    public ChangeUsernameServlet() {
+    
+    public ChangePasswordServlet() {
         super();
     }
 
@@ -31,13 +31,13 @@ public class ChangeUsernameServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		
-		String username = request.getParameter("username");
+		String password = request.getParameter("password");
 		int userID = Integer.parseInt(session.getAttribute("userID").toString());
 		
-		es.updateUsername(username, userID);
+		es.updatePassword(password, userID);
 		
 		request.getRequestDispatcher("employeeProfile.html").forward(request, response);
-				
+
 	}
 
 }

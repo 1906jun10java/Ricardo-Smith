@@ -18,7 +18,7 @@ public class EmployeeService {
 	ReimbursementDAOImpl rdi = new ReimbursementDAOImpl();
 	
 	
-	//======================================================
+	//=================================================================================
 	
 	public List<User> employeeList() {
 		
@@ -32,7 +32,7 @@ public class EmployeeService {
 		return employees;
 	}
 	
-	//========================================================
+	//=================================================================================
 	
 	public void createReimbursement(int reimbursementID, double amount, String description, String status, int empID, int reviewingMgrID) {
 		
@@ -44,7 +44,7 @@ public class EmployeeService {
 		}
 	}
 	
-	//===============================================
+	//=================================================================================
 	
 	public void updateUsername(String username, int userID) {
 		try {
@@ -54,7 +54,18 @@ public class EmployeeService {
 		}
 	}
 	
+	//=================================================================================
 	
+	public void updatePassword(String password, int userID) {
+		try {
+			usd.updateUsername(password, userID);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+
 	
 
 }

@@ -13,9 +13,13 @@ import com.revature.P1.dao.UserDAO;
 import com.revature.P1.utilities.ConnFactory;
 
 public class UserDAOImpl implements UserDAO{
+	
 	private boolean result;
 	public static ConnFactory cf = ConnFactory.getInstance();
 
+	//=================================================================================
+
+	
 	@Override
 	public void createUser(int mgrID, String username, String password, String firstName, String lastName,String email) throws SQLException {
 		Connection conn = cf.getConnection();
@@ -29,6 +33,9 @@ public class UserDAOImpl implements UserDAO{
 		ps.setString(6, email);
 		ps.executeUpdate();
 	}
+	
+	//=================================================================================
+
 
 	@Override
 	public List<User> getUserList() throws SQLException {  //won't need this method. Just testing it
@@ -46,6 +53,9 @@ public class UserDAOImpl implements UserDAO{
 		return userList;
 	}
 	
+	//=================================================================================
+
+	
 	public User getThisUser(String username, String password) throws SQLException{
 	//List<User> userList = new ArrayList<User>();
 		Connection conn = cf.getConnection();
@@ -58,6 +68,9 @@ public class UserDAOImpl implements UserDAO{
 		}
 		return u;
 	}
+	
+	//=================================================================================
+
 	
 	
 	public boolean isUser(String username, String password) throws SQLException{
@@ -76,6 +89,10 @@ public class UserDAOImpl implements UserDAO{
 		return result;
 	}
 	
+	
+	//=================================================================================
+
+	
 	// Use this method to get all employees!!!!
 	
 	public List<User> getEmployeeList() throws SQLException {  //won't need this method. Just testing it
@@ -93,6 +110,9 @@ public class UserDAOImpl implements UserDAO{
 		return userList;
 	}
 	
+	//=================================================================================
+
+	
 	public void updateUsername (String username, int userID) throws SQLException{
 		Connection conn = cf.getConnection();
 		String sql = "UPDATE USERS SET USERNAME = ? WHERE USERID = ?";
@@ -101,6 +121,22 @@ public class UserDAOImpl implements UserDAO{
 		ps.setInt(2, userID);
 		ps.executeUpdate();
 	}
+	
+	//=================================================================================
+
+	
+	
+	public void updatePassword (String password, int userID) throws SQLException{
+		Connection conn = cf.getConnection();
+		String sql = "UPDATE USERS SET PASSWORD = ? WHERE USERID = ?";
+		PreparedStatement ps = conn.prepareStatement(sql);
+		ps.setString(1, password);
+		ps.setInt(2, userID);
+		ps.executeUpdate();
+	}
+	
+	//=================================================================================
+
 
 	
 
