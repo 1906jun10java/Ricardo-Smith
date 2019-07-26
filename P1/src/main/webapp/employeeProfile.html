@@ -17,7 +17,7 @@
 		<p id="firstP">Thanks for logging into your Assassin's Account.</p>
 	</div>
 	
-	<div class="display">
+	<div>
 	<form action="addReimbursement" method="POST">
 	Enter the Reimbursement Amount: <input type="text" name="amount" autocomplete="off" placeholder="dollar amount"><br>
 	Enter the Reimbursement Reason: <input type="text" name="reason" autocomplete="off" placeholder="Weapons, poisons, etc"><br>
@@ -26,8 +26,9 @@
 	</div>
 	
 	<br>
+	<br>
 	
-	<div class="display">
+	<div>
 	<form action="changeUsername" method="POST">
 	Enter New Username: <input type="text" name="username" id="changeUser"><br>	
 	<button id="changeUsername">Change username now</button>  			<!--  <input type="submit"> -->
@@ -35,12 +36,13 @@
 	</div>
 	
 	<br>
+	<br>
 	
-	<div class="display">
+	<div>
 	<p>Password must be at least 8 characters including two numbers.</p>
 	<form action="changePassowrd" method="POST">
 	Enter New Password: <input type="text" name="password"><br>
-	<button id="changeUsername" type="password" autocomplete="off">Change password now</button>			<!-- <input type="submit"> -->
+	<input type="submit" autocomplete="off">
 	</form>
 	</div>
 	
@@ -66,12 +68,7 @@
 	document.getElementById("changeUsername").addEventListener("click", function() {
 		  alert("Username successfully changed");
 		});
-	
-	document.getElementById("changePassword").addEventListener("click", function() {
-		  alert("Password successfully changed");
-		});
-	
-	</script>
+		</script>
 
 </body>
 </html>

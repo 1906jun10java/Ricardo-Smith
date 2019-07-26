@@ -41,6 +41,7 @@
     <servlet-name>Reimbursement</servlet-name>
     <url-pattern>/addReimbursement</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>Session</servlet-name>
     <servlet-class>com.revature.P1.servlet.SessionServlet</servlet-class>
@@ -49,6 +50,7 @@
     <servlet-name>Session</servlet-name>
     <url-pattern>/session</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ChangeUsername</servlet-name>
     <servlet-class>com.revature.P1.servlet.ChangeUsernameServlet</servlet-class>
@@ -57,6 +59,7 @@
     <servlet-name>ChangeUsername</servlet-name>
     <url-pattern>/changeUsername</url-pattern>
   </servlet-mapping>
+  
   <servlet>
     <servlet-name>ChangePassword</servlet-name>
     <servlet-class>com.revature.P1.servlet.ChangePasswordServlet</servlet-class>
