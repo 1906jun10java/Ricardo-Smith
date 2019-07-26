@@ -8,6 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.P1.beans.Employee;
+import com.revature.P1.beans.Reimbursement;
 import com.revature.P1.beans.User;
 import com.revature.P1.dao.UserDAO;
 import com.revature.P1.utilities.ConnFactory;
@@ -136,6 +138,51 @@ public class UserDAOImpl implements UserDAO{
 	}
 	
 	//=================================================================================
+	
+	public List<Employee> grabEmployeesAndManagers() throws SQLException{
+		List<Employee> employeeAndManagerList = new ArrayList<Employee>();
+		
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT EMP.USERID, EMP.FIRSTNAME,	EMP.LASTNAME, MGR.USERID, MGR.FIRSTNAME, MGR.LASTNAME FROM USERS EMP LEFT JOIN USERS MGR ON EMP.MGRID = MGR.USERID");
+		Employee people = null;
+		while(rs.next()) {
+			
+			/*int employeeID = rs.getInt(1);
+			String employeeFirst = rs.getString(2);
+			String employeeLast = rs.getString(3);
+			int managerID = rs.getInt(4);
+			String managerFirst = rs.getString(5);
+			String managerLast = rs.getString(6);
+			
+			Employee people = new Employee(employeeID, employeeFirst, employeeLast, managerID, managerFirst, managerLast);
+			employeeAndManagerList.add(people);*/
+			
+			people = new Employee(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6));
+			employeeAndManagerList.add(people);
+		}
+		
+		return employeeAndManagerList;
+	}
+	
+	//=================================================================================
+	
+	public List<Reimbursement> grabReimbursements(int userID) throws SQLException{
+		List<Reimbursement> reimbursementList = new ArrayList<Reimbursement>();
+		
+		Connection conn = cf.getConnection();
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE USERID = "+userID);
+		Reimbursement reim = null;
+		
+		while(rs.next()) {
+			reim = new Reimbursement(rs.getInt(1), rs.getDouble(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6));
+			reimbursementList.add(reim);
+		}
+		
+		return reimbursementList;
+	}
+
 
 
 	

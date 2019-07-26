@@ -20,7 +20,7 @@ public class ManagerProfileServlet extends HttpServlet {
     
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		req.getRequestDispatcher("managerProfile.html").forward(req, resp);;
+		req.getRequestDispatcher("managerProfile.html").forward(req, resp);
 	}
 
 	

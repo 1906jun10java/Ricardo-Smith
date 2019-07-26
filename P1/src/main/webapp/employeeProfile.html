@@ -5,6 +5,7 @@
 <meta charset="ISO-8859-1">
 <title>Profile</title>
 <link rel="stylesheet" href="myWickedStyle.css">
+
 <script src="scripts/javascript.js"></script> <!-- linking to JS file to display info  -->
 
 </head>
@@ -35,18 +36,25 @@
 	</form>
 	</div>
 	
-	<br>
-	<br>
-	
 	<div>
-	<p>Password must be at least 8 characters including two numbers.</p>
-	<form action="changePassowrd" method="POST">
-	Enter New Password: <input type="text" name="password"><br>
-	<input type="submit" autocomplete="off">
+		<form action="reimbursementByUserID.html" method="POST"><br><br>
+		<input type="submit" value="Click to see your reimbursements" />
 	</form>
 	</div>
 	
+	<br>
+	<br>
 	
+	<p>Password must be at least 8 characters including two numbers.</p> 
+	<div>
+	<form action="changePassowrd" method="POST">
+	Enter New Password: <input type="text" name="password" id="changePass"><br>
+	<button id="changePassword">Change password here</button>
+	</form>
+	</div>
+	
+	<br>
+	<br>
 
 	<div>
 		<ul id="info" class="display">

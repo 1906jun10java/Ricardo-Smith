@@ -71,7 +71,27 @@ public class Main {
 			e.printStackTrace();
 		}
 		
-		*/
+			
+	
+		try {
+			System.out.println(usd.grabEmployeesAndManagers()); //prints more info than necessary because of toString() method
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		try {
+			System.out.println(rdi.getReimbursementAll());
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	*/
+		
+		try {
+			System.out.println(rdi.getReimbursementByUserID(124));
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 }

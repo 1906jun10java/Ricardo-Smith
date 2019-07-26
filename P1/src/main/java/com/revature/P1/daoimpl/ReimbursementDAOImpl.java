@@ -34,11 +34,11 @@ public class ReimbursementDAOImpl implements ReimbursementDAO {
 	}
 
 	@Override
-	public List<Reimbursement> getReimbursementByUserID(int userID) throws SQLException {
+	public List<Reimbursement> getReimbursementByUserID(int empID) throws SQLException {
 		List<Reimbursement> reimbursementList = new ArrayList<Reimbursement>();
 		Connection conn = cf.getConnection();
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE USERID = '"+userID+"'");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM REIMBURSEMENT WHERE USERID = '"+empID+"'");
 		Reimbursement r = null;
 		while(rs.next()) {
 			r = new Reimbursement(rs.getInt(1), rs.getDouble(2),rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6));

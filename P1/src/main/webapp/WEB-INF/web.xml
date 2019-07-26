@@ -41,7 +41,6 @@
     <servlet-name>Reimbursement</servlet-name>
     <url-pattern>/addReimbursement</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>Session</servlet-name>
     <servlet-class>com.revature.P1.servlet.SessionServlet</servlet-class>
@@ -50,7 +49,6 @@
     <servlet-name>Session</servlet-name>
     <url-pattern>/session</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ChangeUsername</servlet-name>
     <servlet-class>com.revature.P1.servlet.ChangeUsernameServlet</servlet-class>
@@ -59,7 +57,6 @@
     <servlet-name>ChangeUsername</servlet-name>
     <url-pattern>/changeUsername</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>ChangePassword</servlet-name>
     <servlet-class>com.revature.P1.servlet.ChangePasswordServlet</servlet-class>
@@ -67,5 +64,21 @@
   <servlet-mapping>
     <servlet-name>ChangePassword</servlet-name>
     <url-pattern>/changePassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewEmployeesAndManagers</servlet-name>
+    <servlet-class>com.revature.P1.servlet.ViewEmployeesAndManagersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewEmployeesAndManagers</servlet-name>
+    <url-pattern>/viewEmployeesAndManagers</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ReimbursementByUserID</servlet-name>
+    <servlet-class>com.revature.P1.servlet.ReimbursementByUserIDServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReimbursementByUserID</servlet-name>
+    <url-pattern>/reimbursementByUserID</url-pattern>
   </servlet-mapping>
 </web-app>

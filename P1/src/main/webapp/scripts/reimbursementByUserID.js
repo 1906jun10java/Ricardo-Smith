@@ -1,12 +1,10 @@
-let array = {};
-
 window.onload = function() {
 	populateUser();
 }
 
 function populateUser() {
 	// send a GET request to SessionServlet to obtain session information
-	fetch("http://localhost:8082/P1/viewEmployeesAndManagers")
+	fetch("http://localhost:8082/P1/reimbursementByUserID")
 			.then(function(response) {
 				return response.json(); // parsing json data in the response as
 										// a JS object
@@ -23,18 +21,16 @@ function populateUser() {
 							
 							for(i=0; i < array.length; i++){
 								let li = document.createElement("li");
-								//let employee = `Employee: ${array[i].employeeFirst}${array[i].employeeLast}`;
-								//let manager = `Manager: ${array[i].managerFirst} ${array[i].managerLast}`;
-								
-								let employee = "Employee: "+array[i].employeeFirst+ " "+array[i].employeeLast+", ";
-								let manager = "Manager: "+array[i].managerFirst+ " "+array[i].managerLast;
-								if(array[i].managerFirst == null){
+																
+								let reason = "Reimbursement for: "+array[i].description+ " ";
+								let cost = "Cost : "+array[i].amount+ " ";
+								let status = "Status: "+array[i].status+ " ";
+								/*if(array[i].managerFirst == null){
 									manager = "Manager: NA";
-								}
-								//let employeeAndManager = document.createTextNode(`${employee}, ${manager}`);
-								let employeeAndManager = document.createTextNode(employee+"\n" + manager + "\n\n\n")
+								}*/
+								let reimbursements = document.createTextNode(reason+"\n" + cost +"\n"+ status+"\n\n\n")
 								
-								li.appendChild(employeeAndManager);
+								li.appendChild(reimbursement);
 								document.getElementById("info").appendChild(li);
 							}
 

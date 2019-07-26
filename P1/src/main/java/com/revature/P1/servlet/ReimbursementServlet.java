@@ -48,7 +48,7 @@ public class ReimbursementServlet extends HttpServlet {
 				int empID = Integer.parseInt(session.getAttribute("userID").toString());
 				int mgrID = Integer.parseInt(session.getAttribute("mgrID").toString());
 				
-				es.createReimbursement(13, amount, reason, "Pending", empID, mgrID);
+				es.createReimbursement(14, amount, reason, "Pending", empID, mgrID);
 				
 				request.getRequestDispatcher("employeeProfile.html").forward(request, response);
 				

@@ -1,2 +1,0 @@
-2019-07-19 18:16:09 INFO  root:28 - spiderman logging in
- 
